@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Danh sách người dùng </h1>
+
+    <table>
+        <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Email</th>
+                <th>Avatar</th>
+                <th colspan="2">Action</th>
+        </tr>
+        <tr>
+            <% for(let i = 0; i < users.length; i++){ %>
+                <tr>
+                    <td><%=i + 1%></td>
+                    <td><%=users[i].name%></td>
+                    <td><%=users[i].address%></td>
+                    <td><%=users[i].email%></td>
+                    <!-- <td><%=users[i].avatar%></td> -->
+                    <td><img src="<%= users[i].avatar %>" height="100" width="100"></td>
+                    <td><a href="/edit/<%=users[i].id%>" class="text-dark"  >Edit</a> </td>
+
+                    <td><a href="/delete/<%=users[i].id%>" class="text-dark"  >Delete</a> </td>
+                </tr>
+                <%}%>
+        </tr>
+        <button type="submit"><a href="/create">Tạo mới</a></button>
+    </table>
+</body>
+</html>
